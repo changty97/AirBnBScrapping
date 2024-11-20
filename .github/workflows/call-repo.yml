@@ -1,0 +1,23 @@
+name: Call Repo
+
+on:
+  push:
+
+env:
+  GH_TOKEN: ${{ github.token }}
+  
+jobs:
+  call-repo:
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+        # Private version of https://github.com/actions/hello-world-docker-action
+          repository: changty97/personalsite
+          token: ${{ env.GH_TOKEN }} # `GitHub_PAT` is a secret that contains your PAT to clone that private repo
+      
+      - run: ls -la #&& npm run build
+
+      - uses: actions/checkout@v4
+      - run: ls -la && ls -la ..
+  
