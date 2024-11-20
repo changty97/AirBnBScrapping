@@ -16,7 +16,8 @@ jobs:
           repository: changty97/personalsite
           token: ${{ env.GH_TOKEN }} # `GitHub_PAT` is a secret that contains your PAT to clone that private repo
       
-      - run: ls -la # cd personalsite && npm run build
+      - run: ls -la && npm run build
 
       - uses: actions/checkout@v4
+      - run: ls -la && ls -la ..
   
